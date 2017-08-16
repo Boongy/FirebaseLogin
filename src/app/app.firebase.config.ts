@@ -1,5 +1,5 @@
 var config = {
-  apiKey: "AIzaSyCSWu7_eR_jsiyY7bs52Aq6f23KoNKIdLo",
+  apiKey: "",
   authDomain: "boongyandbuds.firebaseapp.com",
   databaseURL: "https://boongyandbuds.firebaseio.com",
   projectId: "boongyandbuds",

@@ -31,11 +31,12 @@ export class HomePage {
             message: 'Welcome to Boongy And Buds, ' + data.email,
             duration:3000
       }).present();
-
-
         this.profileData = this.afDatabase.object('profile/'+data.uid);
       }
       else{
+
+        //this.navCtrl.setRoot('LoginPage');
+
         this.toast.create({
           message: 'Could not find authentication details',
           duration:3000

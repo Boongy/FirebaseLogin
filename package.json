@@ -1,8 +1,8 @@
 {
   "name": "clicker",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "author": "Mason Prochaska",
+  "homepage": "http://g59.com/",
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",

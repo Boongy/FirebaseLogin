@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { User } from "../../models/user";
 import { AngularFireAuth } from "angularfire2/auth";
+import { LoadingController } from 'ionic-angular';
 
 /**
  * Generated class for the LoginPage page.
@@ -19,7 +20,8 @@ export class LoginPage {
 
   user = {} as User;
 
-  constructor(private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private afAuth: AngularFireAuth, public loadingCtrl: LoadingController, public navCtrl: NavController,
+              public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
@@ -30,7 +32,13 @@ export class LoginPage {
     try {
       const result = await this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password);
       if(result) {
+        let loader = this.loadingCtrl.create({
+          content: "Please wait...",
+          duration: 3000
+        });
         this.navCtrl.setRoot('HomePage');
+        loader.present();
+
       }
     }
     catch(e) {

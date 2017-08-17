@@ -9,8 +9,8 @@ import { MyApp } from './app.component';
 import { AngularFireModule } from "angularfire2";
 import { FIREBASE_CONFIG } from "./app.firebase.config";
 import { AngularFireAuthModule } from "angularfire2/auth";
-import { LoginPage } from "../pages/login/login";
 import {AngularFireDatabaseModule} from "angularfire2/database";
+import {LoginPage} from "../pages/login/login";
 
 
 @NgModule({

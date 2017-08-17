@@ -7,8 +7,30 @@
 <ion-header>
 
   <ion-navbar>
+
+    <ion-buttons start>
+      <button ion-button icon-only>
+        <ion-icon name="cog"></ion-icon>
+      </button>
+    </ion-buttons>
+
     <ion-title>Home</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="people"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="basket"></ion-icon>
+      </button>
+    </ion-buttons>
+
   </ion-navbar>
+
+
 
 </ion-header>
 
@@ -18,5 +40,17 @@
   <p>Username: {{(profileData | async)?.username}}</p>
   <p>First Name: {{(profileData | async)?.firstName}}</p>
   <p>Last Name: {{(profileData | async)?.lastName}}</p>
+
+  <P>Standard button</P>
+
+  <button ion-button color="primary">Standard Button</button>
+
+  <P>Clear button</P>
+
+  <button ion-button clear color="secondary">Standard Button</button>
+
+  <P>Round button</P>
+
+  <button ion-button round color="danger">Standard Button</button>
 
 </ion-content>

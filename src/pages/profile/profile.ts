@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {IonicPage, LoadingController, NavController, NavParams} from 'ionic-angular';
 import {AngularFireAuth} from "angularfire2/auth";
 import { Profile } from "../../models/profile" ;
 import {AngularFireDatabase} from "angularfire2/database";
@@ -20,8 +20,8 @@ export class ProfilePage {
 
   profile = {} as Profile;
 
-  constructor(private afAuth: AngularFireAuth, private afDatabase: AngularFireDatabase, public navCtrl: NavController,
-              public navParams: NavParams) {
+  constructor(private afAuth: AngularFireAuth, public loadingCtrl: LoadingController, private afDatabase: AngularFireDatabase,
+              public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
@@ -31,8 +31,13 @@ export class ProfilePage {
   createProfile() {
     this.afAuth.authState.take(1).subscribe(auth =>{
       this.afDatabase.object('profile/'+auth.uid).set(this.profile)
-        .then(() => this.navCtrl.setRoot('HomePage'))
-    })
+        .then(() => this.navCtrl.setRoot("HomePage"))
+    });
+    let loader = this.loadingCtrl.create({
+      content: "Please wait...",
+      duration: 1000
+    });
+    loader.present();
   }
 
 }

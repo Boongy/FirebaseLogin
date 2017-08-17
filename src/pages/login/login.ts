@@ -34,9 +34,9 @@ export class LoginPage {
       if(result) {
         let loader = this.loadingCtrl.create({
           content: "Please wait...",
-          duration: 3000
+          duration: 1000
         });
-        this.navCtrl.setRoot('HomePage');
+        this.navCtrl.setRoot("HomePage");
         loader.present();
 
       }
@@ -48,7 +48,7 @@ export class LoginPage {
 
 
   register() {
-    this.navCtrl.push('RegisterPage');
+    this.navCtrl.push("RegisterPage");
   }
 
 }

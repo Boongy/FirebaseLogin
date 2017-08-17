@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
-import {IonicPageModule} from 'ionic-angular';
-
+import { IonicPageModule } from 'ionic-angular';
 import { ProfilePage } from './profile';
 
 @NgModule({
@@ -14,4 +13,4 @@ import { ProfilePage } from './profile';
     ProfilePage
   ]
 })
-export class ShowPageModule {}
+export class ProfilePageModule {}

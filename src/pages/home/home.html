@@ -9,12 +9,12 @@
   <ion-navbar>
 
     <ion-buttons start>
-      <button ion-button icon-only>
+      <button ion-button menuToggle  icon-only>
         <ion-icon name="cog"></ion-icon>
       </button>
     </ion-buttons>
 
-    <ion-title>Home</ion-title>
+    <ion-title>Boongy & Buds</ion-title>
 
     <ion-buttons end>
       <button ion-button icon-only>
@@ -23,7 +23,7 @@
     </ion-buttons>
 
     <ion-buttons end>
-      <button ion-button icon-only>
+      <button ion-button icon-only (click)="buttonClicked()">
         <ion-icon name="basket"></ion-icon>
       </button>
     </ion-buttons>
@@ -37,20 +37,44 @@
 
 <ion-content padding>
 
+  <!--
   <p>Username: {{(profileData | async)?.username}}</p>
   <p>First Name: {{(profileData | async)?.firstName}}</p>
   <p>Last Name: {{(profileData | async)?.lastName}}</p>
+  -->
 
-  <P>Standard button</P>
+  <ion-chip>
+    <button ion-button clear>
+      <ion-icon name ="logo-angular"></ion-icon>
+    </button>
+    <ion-label color="secondary">Chip example</ion-label>
+  </ion-chip>
 
-  <button ion-button color="primary">Standard Button</button>
 
-  <P>Clear button</P>
+  <ion-item>
+    <ion-label floating>Hero Name</ion-label>
+    <ion-input type="text" [(ngModel)] ="heroName"></ion-input>
+  </ion-item>
 
-  <button ion-button clear color="secondary">Standard Button</button>
+  <ion-item>
+    <ion-label floating>Balance</ion-label>
+    <ion-input type="number" [(ngModel)] ="ammount"></ion-input>
+  </ion-item>
 
-  <P>Round button</P>
+  <button ion-button block color="secondary" (click)="submitDetails(ammount, heroName)">Submit</button>
 
-  <button ion-button round color="danger">Standard Button</button>
+
+
+  <ion-footer>
+
+
+    <ion-item>
+      <ion-icon name="person" item-start></ion-icon>
+      <h3>{{(profileData | async)?.username}}'s Score:</h3>
+      <ion-badge item-end>{{details.balance}}</ion-badge>
+    </ion-item>
+
+
+  </ion-footer>
 
 </ion-content>

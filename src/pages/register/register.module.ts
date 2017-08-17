@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import {IonicPageModule} from 'ionic-angular';
 
-import { RegisterPage } from './register';
+import {RegisterPage} from "./register";
 
 @NgModule({
   declarations: [
@@ -14,4 +14,4 @@ import { RegisterPage } from './register';
     RegisterPage
   ]
 })
-export class ShowPageModule {}
+export class RegisterPageModule {}

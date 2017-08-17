@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { AngularFireAuth} from "angularfire2/auth"
-import {AngularFireDatabase, FirebaseObjectObservable} from "angularfire2/database";
+import {AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} from "angularfire2/database";
 import {Profile} from "../../models/profile";
+import {StorePage} from "../store/store";
+import {AccountDetails} from "../../models/AccountDetails";
 
 /**
  * Generated class for the HomePage page.
@@ -18,7 +20,11 @@ import {Profile} from "../../models/profile";
 })
 export class HomePage {
 
-  profileData: FirebaseObjectObservable<Profile>
+  profileData: FirebaseObjectObservable<Profile>;
+
+  databaseRef$: FirebaseListObservable<AccountDetails>;
+
+  details = {} as AccountDetails;
 
   constructor(private afAuth: AngularFireAuth, private afDatabase: AngularFireDatabase, private toast: ToastController,
               public navCtrl: NavController, public navParams: NavParams) {
@@ -29,21 +35,36 @@ export class HomePage {
       if(data && data.email && data.uid) {
         this.toast.create({
             message: 'Welcome to Boongy And Buds, ' + data.email,
-            duration:3000
+            duration:1000
       }).present();
         this.profileData = this.afDatabase.object('profile/'+data.uid);
       }
       else{
 
-        //this.navCtrl.setRoot('LoginPage');
+        this.navCtrl.push("LoginPage");
 
         this.toast.create({
           message: 'Could not find authentication details',
-          duration:3000
+          duration:1000
         }).present();
       }
     });
 
+  }
+
+
+  buttonClicked() {
+    this.navCtrl.push("StorePage");
+  }
+
+  submitDetails(ammount, heroName) {
+
+    this.details.balance = ammount;
+    this.details.heroName = heroName;
+
+    this.afAuth.authState.take(1).subscribe(auth =>{
+      this.afDatabase.object('AccountDetails/'+auth.uid).set(this.details)
+    });
   }
 
 }

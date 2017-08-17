@@ -1,14 +1,14 @@
 webpackJsonp([1],{
 
-/***/ 402:
+/***/ 407:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShowPageModule", function() { return ShowPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StorePageModule", function() { return StorePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(78);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__profile__ = __webpack_require__(405);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__store__ = __webpack_require__(408);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,38 +18,36 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ShowPageModule = (function () {
-    function ShowPageModule() {
+var StorePageModule = (function () {
+    function StorePageModule() {
     }
-    return ShowPageModule;
+    return StorePageModule;
 }());
-ShowPageModule = __decorate([
+StorePageModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__profile__["a" /* ProfilePage */]
+            __WEBPACK_IMPORTED_MODULE_2__store__["a" /* StorePage */]
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__profile__["a" /* ProfilePage */])
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__store__["a" /* StorePage */])
         ],
         entryComponents: [
-            __WEBPACK_IMPORTED_MODULE_2__profile__["a" /* ProfilePage */]
+            __WEBPACK_IMPORTED_MODULE_2__store__["a" /* StorePage */]
         ]
     })
-], ShowPageModule);
+], StorePageModule);
 
-//# sourceMappingURL=profile.module.js.map
+//# sourceMappingURL=store.module.js.map
 
 /***/ }),
 
-/***/ 405:
+/***/ 408:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfilePage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StorePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(78);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(139);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__ = __webpack_require__(269);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -61,44 +59,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
-
 /**
- * Generated class for the ProfilePage page.
+ * Generated class for the StorePage page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-var ProfilePage = (function () {
-    function ProfilePage(afAuth, afDatabase, navCtrl, navParams) {
-        this.afAuth = afAuth;
-        this.afDatabase = afDatabase;
+var StorePage = (function () {
+    function StorePage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.profile = {};
     }
-    ProfilePage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad ProfilePage');
+    StorePage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad StorePage');
     };
-    ProfilePage.prototype.createProfile = function () {
-        var _this = this;
-        this.afAuth.authState.take(1).subscribe(function (auth) {
-            _this.afDatabase.object('profile/' + auth.uid).set(_this.profile)
-                .then(function () { return _this.navCtrl.setRoot('HomePage'); });
-        });
-    };
-    return ProfilePage;
+    return StorePage;
 }());
-ProfilePage = __decorate([
+StorePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-profile',template:/*ion-inline-start:"c:\users\mason\ionApps\clicker\src\pages\profile\profile.html"*/'<!--\n  Generated template for the ProfilePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Profile</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <ion-item>\n    <ion-label floating>Username</ion-label>\n    <ion-input [(ngModel)]="profile.username"></ion-input>\n  </ion-item>\n\n  <ion-item>\n    <ion-label floating>First Name</ion-label>\n    <ion-input [(ngModel)]="profile.firstName"></ion-input>\n  </ion-item>\n\n  <ion-item>\n    <ion-label floating>Last Name</ion-label>\n    <ion-input [(ngModel)]="profile.lastName"></ion-input>\n  </ion-item>\n\n  <button ion-button clear block (click)="createProfile()">Create Profile</button>\n\n</ion-content>\n'/*ion-inline-end:"c:\users\mason\ionApps\clicker\src\pages\profile\profile.html"*/,
+        selector: 'page-store',template:/*ion-inline-start:"c:\users\mason\ionApps\clicker\src\pages\store\store.html"*/'<!--\n  Generated template for the StorePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Store {{(profileData | async)?.username}}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n  <ion-content class="card-background-page">\n\n    <ion-card>\n      <img src="assets/images/hotdog.png"/>\n      <div class="card-title">Meme</div>\n      <div class="card-subtitle">41 Listings</div>\n    </ion-card>\n\n    <ion-card>\n      <img src="assets/images/hentaiboys.jpg"/>\n      <div class="card-title">Hentai</div>\n      <div class="card-subtitle">64 Listings</div>\n    </ion-card>\n\n    <ion-card>\n      <img src="assets/images/lean.jpg"/>\n      <div class="card-title">Lean</div>\n      <div class="card-subtitle">72 Listings</div>\n    </ion-card>\n\n    <ion-card>\n      <img src="assets/images/putin.jpg"/>\n      <div class="card-title">Putin</div>\n      <div class="card-subtitle">28 Listings</div>\n    </ion-card>\n\n  </ion-content>\n\n</ion-content>\n'/*ion-inline-end:"c:\users\mason\ionApps\clicker\src\pages\store\store.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
-], ProfilePage);
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
+], StorePage);
 
-//# sourceMappingURL=profile.js.map
+//# sourceMappingURL=store.js.map
 
 /***/ })
 

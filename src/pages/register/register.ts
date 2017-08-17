@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {IonicPage, LoadingController, NavController, NavParams} from 'ionic-angular';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import { User } from "../../models/user";
 import { AngularFireAuth } from "angularfire2/auth"
 
@@ -19,7 +19,7 @@ export class RegisterPage {
 
   user = {} as User;
 
-  constructor(private afAuth: AngularFireAuth, public loadingCtrl: LoadingController, public navCtrl: NavController,
+  constructor(private afAuth: AngularFireAuth, public navCtrl: NavController,
               public navParams: NavParams) {
   }
 
@@ -30,12 +30,7 @@ export class RegisterPage {
   async register(user: User) {
     try {
       const result = await this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password);
-      let loader = this.loadingCtrl.create({
-        content: "Please wait...",
-        duration: 3000
-      });
-      this.navCtrl.setRoot('ProfilePage');
-      loader.present();
+      this.navCtrl.setRoot("ProfilePage");
     }
     catch(e){
       console.error(e);
